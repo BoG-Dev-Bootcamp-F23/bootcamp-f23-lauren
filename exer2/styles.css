@@ -1,0 +1,64 @@
+/* Your Styles Here */
+
+.grid-container {
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    padding-top: 45px;
+    justify-items: center;
+    align-items: center;
+}
+
+.item1 {
+    grid-row: 1 / 2;
+    grid-column: 1 / 7;
+    text-align: center;
+    font-family: 'Karla', sans-serif;
+}
+
+.item2 {
+    grid-row: 2 / 3;
+    grid-column: 1 / 7;
+    text-align: center;
+    font-family: 'Karla', sans-serif;
+}
+
+h5 {
+    color: #6d737d;
+}
+
+button {
+    border: none;
+    padding: 10px;
+    border-radius: 11px;
+    background-color: white;
+    text-align: center;
+    font-family: 'Karla', sans-serif;
+    font-size: 40px;
+}
+
+button:hover {
+    background-image: radial-gradient( pink 5%, white 65%);
+}
+
+.tobi {
+    grid-area: 3 / 2 / 4 / 3;
+}
+
+.art {
+    grid-area: 3 / 3 / 4 / 4;
+}
+
+.passion {
+    grid-area: 3 / 4 / 4 / 5;
+}
+
+.food {
+    grid-area: 3 / 5 / 4 / 6;
+}
+
+.pop {
+    grid-area: 4 / 2 / 6 / 6;
+    font-family: 'Karla', sans-serif;
+    line-height: 1.3em;
+}
