@@ -5,7 +5,17 @@ body {
     font-family: 'Karla', sans-serif;
 }
 
+.elements {
+    margin: 0 auto;
+}
+
 #carrot {
-    width: 10px;
-    height: auto;
+    width: 30vw;
+}
+
+p {
+    margin-top: 40px;
+    text-align: center;
+    color: #805f26;
+    width: 30%;
 }
