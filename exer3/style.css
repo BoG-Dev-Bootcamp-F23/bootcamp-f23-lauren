@@ -11,23 +11,37 @@ body {
     flex-direction: row;
     list-style-type: none;
     justify-content: space-between;
-    padding-left: 70px;
+    padding-right: 70px;
     align-items: center;
 }
 
 .nav-bar a {
-    text-decoration: none;
     color: #178536;
+    text-decoration: none;
+}
+
+.nav-bar a:visited {
+    color: #178536;
+    text-decoration: none;
 }
 
 #bunny {
-    font-size: 40px;
-    background: grey;
+    font-size: 35px;
+    background: #cce876;
+    padding: 6px 12px 6px 12px;
+    border-radius: 100%;
+    border-style:solid;
+    border-width: 2px;
+    border-color: #178536;
+    /* margin-right: 50px; */
+}
+
+.links li {
+    padding: 30px;
 }
 
 .links {
     font-size: 20px;
-    padding: 30px;
     display: flex;
     flex-direction: row;
     padding-right: 70px;
@@ -37,48 +51,70 @@ h1 {
     font-size: 95px;
     text-align: center;
     color: #fa8d11;
+    margin-top: 100px;
+    margin-bottom: 0px;
 }
 
 .search {
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
+    justify-content: center;
 }
 
 h2 {
+    font-size: 20px;
+    
+}
+
+#nibble {
     border-style: solid;
     border-width: 2px;
-    border-color: #805f26;
-    border-radius: 20px;
-    background-color: #bfa880;
-    color: #805f26;
+    border-color: #83cdf2;
+    border-radius: 20px 0 0 20px;
+    background-color:  #d0e7f2;
+    color: #83cdf2;
+    padding-right: 250px;
     padding-left: 20px;
-    padding-right: 150px;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    font-size: 20px;
     margin-left: 60px;
 }
 
-button {
+#enjoy a {
+    text-decoration: none;
+    color: #805f26;
+}
+
+#enjoy a:visited {
+    text-decoration: none;
+    color: #805f26;
+}
+
+#enjoy {
     border-style: solid;
     border-width: 2px;
     border-color: #805f26;
-    border-radius: 20px;
+    border-radius: 0 20px 20px 0;
     background-color: #bfa880;
     color: #805f26;
-    font-size: 20px;
     font-family: 'Inclusive Sans', sans-serif;
     font-family: 'Karla', sans-serif;
     margin-right: 60px;
+    padding-right: 16px;
+    padding-left: 16px;
 }
 
 footer {
     position: fixed;
     bottom: 0;
     color: #805f26;
-}
-
-p {
     text-align: center;
 }
+
+
+/*
+
+Things I need help with:
+- get rid of space at the top of the page
+- center the footer text thing
+- why does the button have top and bottom padding?
+
+*/

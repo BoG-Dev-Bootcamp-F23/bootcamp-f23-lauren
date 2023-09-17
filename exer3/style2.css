@@ -1,0 +1,26 @@
+body {
+    background-color: #fff6d1;
+    margin: 0px;
+    font-family: 'Inclusive Sans', sans-serif;
+    font-family: 'Karla', sans-serif;
+}
+
+h1 {
+    color: #6fc763;
+    font-size: 50px;
+    margin-left: 110px;
+    margin-top: 80px;
+}
+
+.flex {
+    display: flex;
+    flex-direction: column;
+    margin-left: 110px;
+    margin-right: 500px;
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    color: #805f26;
+}
