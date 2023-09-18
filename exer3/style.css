@@ -30,12 +30,12 @@ body {
 
 #bunny {
     font-size: 35px;
-    background: #cce876;
+    background: #a8e09b;
     padding: 6px 12px 6px 12px;
     border-radius: 100%;
-    border-style:solid;
+    /* border-style:solid;
     border-width: 2px;
-    border-color: #178536;
+    border-color: #178536; */
     margin-right: 110px;
 }
 
@@ -106,17 +106,11 @@ h2 {
 }
 
 footer {
+    color: #805f26;
+    text-align: center;
     position: fixed;
     bottom: 0;
-    color: #805f26;
-    width: 100%;
+    margin: 0 auto;
+    left: 0;
+    right: 0;
 }
-
-
-/*
-
-Things I need help with:
-- get rid of space at the top of the page
-- center the footer text thing
-
-*/

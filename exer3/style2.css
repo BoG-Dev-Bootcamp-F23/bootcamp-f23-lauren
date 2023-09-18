@@ -57,7 +57,11 @@ h1 {
 }
 
 footer {
+    color: #805f26;
+    text-align: center;
     position: fixed;
     bottom: 0;
-    color: #805f26;
+    margin: 0 auto;
+    left: 0;
+    right: 0;
 }
