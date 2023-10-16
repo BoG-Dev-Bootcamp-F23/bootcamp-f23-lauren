@@ -1,0 +1,57 @@
+.flex {
+    display: flex;
+    flex-direction: row;
+}
+
+.mainSection {
+    display: flex;
+    flex-direction: column;
+}
+
+.colortime {
+    display: flex;
+    flex-direction: row;
+}
+
+.greenDelay {
+    padding-left: 25px;
+    color: green;
+}
+
+.redDelay {
+    padding-left: 25px;
+    color: red;
+}
+
+.rightSection {
+    display: flex;
+    flex-direction: column;
+}
+
+.GOLD {
+    background-color: #f0ce46;
+    border-radius: 8px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.RED {
+    background-color: #eb3f59;
+    border-radius: 8px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.BLUE {
+    background-color: #3f8aeb;
+    border-radius: 8px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.GREEN {
+    background-color: #38d14d;
+    border-radius: 8px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
