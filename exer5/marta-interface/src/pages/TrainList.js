@@ -1,5 +1,5 @@
 import Train from '../components/Train';
-import './TrainList.js'
+import './TrainList.css'
 
 export default function TrainList(props) {
     const { color } = props;

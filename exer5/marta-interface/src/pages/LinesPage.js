@@ -7,7 +7,7 @@ import './LinesPage.css'
 import {useState} from 'react';
 
 export default function LinesPage() {
-  const [currColor, setCurrColor] = useState("BLUE");
+  const [currColor, setCurrColor] = useState("GREEN");
   let dir1 = "Eastbound";
   let dir2 = "Westbound";
   if (currColor === "GOLD" || currColor === "RED") {
