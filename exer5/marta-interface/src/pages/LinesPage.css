@@ -1,9 +1,32 @@
+.top {
+    position: fixed;
+    background-color: #f9faf2;
+    width: 100vw;
+    padding-bottom: 22px;
+}
+
+.title {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 900;
+    font-size: 50px;
+    margin-top: 40px;
+    margin-bottom: 0px;
+    text-align: center;
+}
+
 .flex {
     display: flex;
     flex-direction: row;
 }
 
+.buttonsouter {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
 .buttons {
+    margin-top: 10px;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
@@ -11,7 +34,7 @@
 }
 
 button {
-    background-color: white;
+    background-color: #f9faf2;
     border: 0.95px solid black;
     font-family: 'DM Sans', sans-serif;
     font-weight: 200;
@@ -21,5 +44,12 @@ button {
 }
 
 button:hover {
-    background-color: #b2ed6b;
+    background-color: #e0c6f5;
+    cursor: pointer;
+}
+
+.trainlist {
+    margin-top: 8vh;
+    margin-left: 25vw;
+    margin-top: 26vh;
 }

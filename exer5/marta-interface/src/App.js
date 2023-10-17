@@ -5,8 +5,8 @@ import LinesPage from './pages/LinesPage';
 function App() {
   return (
     <div>
-      <h1 className="title">Train Schedules</h1>
       <LinesPage />
+      <footer>Made by Lauren Ji, 2023</footer>
     </div>
   );
 }

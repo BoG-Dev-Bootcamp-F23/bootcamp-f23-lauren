@@ -7,7 +7,7 @@ import './LinesPage.css'
 import {useState} from 'react';
 
 export default function LinesPage() {
-  const [currColor, setCurrColor] = useState("GOLD");
+  const [currColor, setCurrColor] = useState("BLUE");
   let dir1 = "Eastbound";
   let dir2 = "Westbound";
   if (currColor === "GOLD" || currColor === "RED") {
@@ -18,19 +18,24 @@ export default function LinesPage() {
 
   return (
     <div>
-        <div className="buttons">
-            <button>Arriving</button>
-            <button>Scheduled</button>
-            <button>{dir1}</button>
-            <button>{dir2}</button>
+        <div className="top">
+            <h1 className="title">Train Schedules</h1>
+            <div className="buttonsouter">
+                <div className="buttons">
+                    <button>Arriving</button>
+                    <button>Scheduled</button>
+                    <button>{dir1}</button>
+                    <button>{dir2}</button>
+                </div>
+            </div>
         </div>
         <div className="flex">
-        <div className="navbar">
-            <NavBar color={currColor} data={stationData} />
-        </div>
-        <div className="trainlist">
-            <TrainList color={currColor} data={trainData} />
-        </div>
+            <div className="navbar">
+                <NavBar color={currColor} data={stationData} />
+            </div>
+            <div className="trainlist">
+                <TrainList color={currColor} data={trainData} />
+            </div>
         </div>
     </div>
   );

@@ -9,7 +9,7 @@ export default function NavBar(props) {
     return (
         <div className="bar">
             {stations.map((station) => {
-                return <p>{station}</p>
+                return <p className="station">{station}</p>
             })}
         </div>
     );
