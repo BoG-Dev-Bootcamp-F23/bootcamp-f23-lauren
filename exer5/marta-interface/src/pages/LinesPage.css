@@ -1,0 +1,25 @@
+.flex {
+    display: flex;
+    flex-direction: row;
+}
+
+.buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 50vw;
+}
+
+button {
+    background-color: white;
+    border: 0.95px solid black;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 200;
+    font-size: 20px;
+    border-radius: 30px;
+    padding: 8px 26px;
+}
+
+button:hover {
+    background-color: #b2ed6b;
+}

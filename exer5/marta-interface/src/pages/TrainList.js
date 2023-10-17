@@ -1,4 +1,5 @@
 import Train from '../components/Train';
+import './TrainList.js'
 
 export default function TrainList(props) {
     const { color } = props;
@@ -9,9 +10,11 @@ export default function TrainList(props) {
     });
 
     return (
-        displayedTrains.map((currTrain) => {
+        <div className="list">
+        {displayedTrains.map((currTrain) => {
             return <Train train={currTrain} />
-        })
+        })}
+        </div>
     );
     
 }

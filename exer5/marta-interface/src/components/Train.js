@@ -2,26 +2,25 @@ import './Train.css';
 
 export default function Train(props) {
     const { train } = props;
-    console.log(train);
     
     const fromStation = train.STATION;
     const toStation = train.DESTINATION;
     const color = train.LINE;
     
     const waitingTime = train.WAITING_TIME;
-    const delayDisplay = "Delayed";
-    const delayColor = "redDelay";
+    let delayDisplay = "Delayed";
+    let delayColor = "redDelay";
 
     if (train.DELAY === "T0S") {
-        const delayDisplay = "On time";
-        const delayColor = "greenDelay";
+        delayDisplay = "On time";
+        delayColor = "greenDelay";
     } 
 
     return (
         <div className="flex">
             <div className="mainSection">
                 <div className="trainComponent">
-                    <p>{fromStation}</p>
+                    <p>{fromStation} to {toStation}</p>
                 </div>
                 <div className="colortime">
                     <div className={color}>
