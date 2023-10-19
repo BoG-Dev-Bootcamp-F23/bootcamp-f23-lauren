@@ -1,0 +1,102 @@
+.flex {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 40px;
+    width: 45vw;
+}
+
+.mainSection {
+    display: flex;
+    flex-direction: column;
+}
+
+.trainComponent {
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 500;
+    font-size: 22px;
+}
+
+.colortime {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-top: 8px;
+}
+
+.delay {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    padding-left: 20px;
+}
+
+.greenDelay {
+    color: green;
+}
+
+.redDelay {
+    color: red;
+}
+
+.rightSection {
+    display: flex;
+    flex-direction: column;
+}
+
+p {
+    margin: 0px;
+}
+
+.GOLD {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 200;
+    font-size: 12px;
+    background-color: #f0ce46;
+    border: 0.95px solid black;
+    border-radius: 25px;
+    padding: 5px 16px;
+}
+
+.RED {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 200;
+    font-size: 12px;
+    background-color: #eb3f59;
+    border: 0.95px solid black;
+    border-radius: 25px;
+    padding: 5px 16px;
+}
+
+.BLUE {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 200;
+    font-size: 12px;
+    background-color: #569bf5;
+    border: 0.95px solid black;
+    border-radius: 25px;
+    padding: 5px 16px;
+}
+
+.GREEN {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 200;
+    font-size: 12px;
+    background-color: #38d14d;
+    border: 0.95px solid black;
+    border-radius: 25px;
+    padding: 5px 16px;
+}
+
+.sideSection {
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 500;
+    font-size: 18px;
+}
