@@ -11,6 +11,8 @@ export default function LinesPage() {
   let URLarrival = 'http://13.59.196.129:3001/arrivals/';
   let URLstation = 'http://13.59.196.129:3001/stations/';
   let [data, setData] = useState(null);
+  let [data2, setData2] = useState(null);
+  let [loading, setLoading] = useState(true);
 
   let dir1 = "Eastbound";
   let dir2 = "Westbound";
@@ -22,16 +24,14 @@ export default function LinesPage() {
   useEffect(() => {
     fetch(URLarrival + currColor)
     .then(response => response.json())
-    .then(data => setData(data))
-  },[currColor])
-  useEffect(() => {
-    fetch(URL + currColor)
+    .then(data => setData(data));
+    
+    fetch(URLstation + currColor)
     .then(response => response.json())
-    .then(data => setData(data))
-  },[currColor])
+    .then(data2 => setData2(data2));
 
-  console.log("here");
-  console.log(data);
+    setLoading(false);
+  },[currColor])
 
   return (
     <div>
@@ -53,20 +53,32 @@ export default function LinesPage() {
             </div>
             <div className="buttonsouter">
                 <div className="buttons">
-                    <button className="button">Arriving</button>
-                    <button className="button">Scheduled</button>
-                    <button className="button">{dir1}</button>
-                    <button className="button">{dir2}</button>
+                    <button className="button" onClick={() => {
+
+                    }}>Arriving</button>
+                    <button className="button" onClick={() => {
+
+                    }}>Scheduled</button>
+                    <button className="button" onClick={() => {
+
+                    }}>{dir1}</button>
+                    <button className="button" onClick={() => {
+                        
+                    }}>{dir2}</button>
                 </div>
             </div>
         </div>
         <div className="flex">
             <div className="navbar">
-                <NavBar color={currColor} data={stationData} />
+                <NavBar color={currColor} data={data2} />
             </div>
-            <div className="trainlist">
-                <TrainList color={currColor} data={data} />
-            </div>
+            {
+                loading ? 
+                <div className="loading">LOADING</div>
+                : <div className="trainlist">
+                    <TrainList color={currColor} data={data} />
+                </div>
+            }
         </div>
     </div>
   );
