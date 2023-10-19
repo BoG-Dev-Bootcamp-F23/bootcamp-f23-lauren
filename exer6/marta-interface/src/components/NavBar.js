@@ -4,17 +4,20 @@ import {useState} from 'react';
 export default function NavBar(props) {
     const { color } = props;
     const { data } = props;
-    let [st, setSt] = useState("station");
+    let [clicked, setClicked] = useState(false);
 
     return (
         <div className="bar">
             {data?.map((station) => {
-                return <p className={st} onClick={() => {
-                    if (st === "station") {
-                        st = setSt("clickedNav");
+                return <p className='station' style={{
+                    fontWeight: clicked ? '500' : '400'
+                }} onClick={() => {
+                    if (clicked) {
+                        setClicked(false);
                     } else {
-                        st = setSt("station");
+                        setClicked(true);
                     }
+                    setClicked(false);
                 }}>{station}</p>
             })}
         </div>

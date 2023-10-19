@@ -13,9 +13,11 @@ export default function LinesPage() {
   let [data, setData] = useState(null);
   let [data2, setData2] = useState(null);
   let [loading, setLoading] = useState(true);
+  let [oldData1, setOld1] = useState(null), [oldData2, setOld2] = useState(null), [oldData3, setOld3] = useState(null), [oldData4, setOld4] = useState(null);
 
-  let dir1 = "Eastbound";
-  let dir2 = "Westbound";
+  let [b1, setB1] = useState(false), [b2, setB2] = useState(false), [b3, setB3] = useState(false), [b4, setB4] = useState(false);
+
+  let dir1 = "Eastbound", dir2 = "Westbound";
   if (currColor === "GOLD" || currColor === "RED") {
     dir1 = "Northbound";
     dir2 = "Southbound";
@@ -53,17 +55,69 @@ export default function LinesPage() {
             </div>
             <div className="buttonsouter">
                 <div className="buttons">
-                    <button className="button" onClick={() => {
-
+                    <button className="button" style={{
+                        backgroundColor: b1 ? '#e0c6f5' : '#f9faf2'
+                    }} onClick={() => {
+                        if (!b1) {
+                            setOld1(data);
+                            setData(data?.filter((currTrain) => {
+                                return currTrain.WAITING_TIME === "Arriving";
+                            }));
+                            setB1(true);
+                        } else {
+                            setData(oldData1);
+                            setB1(false);
+                        }
                     }}>Arriving</button>
-                    <button className="button" onClick={() => {
-
+                    <button className="button" style={{
+                        backgroundColor: b2 ? '#e0c6f5' : '#f9faf2'
+                    }} onClick={() => {
+                        if (!b2) {
+                            setOld2(data);
+                            setData(data?.filter((currTrain) => {
+                                return currTrain.WAITING_TIME !== "Arriving";
+                            }));
+                            setB2(true);
+                        } else {
+                            setData(oldData2);
+                            setB2(false);
+                        }
                     }}>Scheduled</button>
-                    <button className="button" onClick={() => {
-
+                    <button className="button" style={{
+                        backgroundColor: b3 ? '#e0c6f5' : '#f9faf2'
+                    }} onClick={() => {
+                        if (!b3) {
+                            setOld3(data);
+                            setData(data?.filter((currTrain) => {
+                                if (currColor === 'GOLD' || currColor === 'RED') {
+                                    return currTrain.DIRECTION === "N";
+                                } else {
+                                    return currTrain.DIRECTION === 'E';
+                                }
+                            }));
+                            setB3(true);
+                        } else {
+                            setData(oldData3);
+                            setB3(false);
+                        }
                     }}>{dir1}</button>
-                    <button className="button" onClick={() => {
-                        
+                    <button className="button" style={{
+                        backgroundColor: b4 ? '#e0c6f5' : '#f9faf2'
+                    }} onClick={() => {
+                        if (!b4) {
+                            setOld4(data);
+                            setData(data?.filter((currTrain) => {
+                                if (currColor === 'GOLD' || currColor === 'RED') {
+                                    return currTrain.DIRECTION === "S";
+                                } else {
+                                    return currTrain.DIRECTION === 'W';
+                                }
+                            }));
+                            setB4(true);
+                        } else {
+                            setData(oldData4);
+                            setB4(false);
+                        }
                     }}>{dir2}</button>
                 </div>
             </div>
