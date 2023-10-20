@@ -4,12 +4,18 @@ import {useState} from 'react';
 export default function NavBar(props) {
     const { stations } = props;
     const { data } = props;
+    const [selected, setSelected] = useState(true);
     const [filter, setFilter] = useState("");
 
     return (
         <div className="bar">
-            <p className="all" onClick={() => {
-
+            <p className="all" style ={{
+                fontWeight: selected ? '700' : '400'
+            }} onClick={() => {
+                if (!selected) {
+                    setSelected(true);
+                    setFilter("");
+                } 
             }}>ALL STATIONS</p>
             {stations?.map((station) => {
                 return <p className='station' style={{
@@ -17,12 +23,10 @@ export default function NavBar(props) {
                 }} onClick={() => {
                     if (filter.includes(station)) {
                         setFilter(filter.replace(station, ""));
-                        
-                        console.log('unclicked');
                     } else {
                         setFilter(filter + " " + station);
-                        console.log('clicked');
                     }
+                    setSelected(false);
                 }}>{station}</p>
             })}
         </div>
