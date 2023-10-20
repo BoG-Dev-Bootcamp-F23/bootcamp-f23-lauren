@@ -38,7 +38,7 @@ export default function LinesPage() {
   },[currColor])
 
   useEffect(() => {
-    setGiveTrain(data?.filter((currTrain) => {
+    setGiveTrain(givetrain?.filter((currTrain) => {
         let temp1=false, temp2=false, temp3=false, temp4=false;
         if (currTrain.WAITING_TIME === 'Arriving') {
             temp1 = true;
