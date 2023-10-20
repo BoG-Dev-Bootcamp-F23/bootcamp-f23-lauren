@@ -17,7 +17,6 @@ export default function NavBar(props) {
                     } else {
                         setClicked(true);
                     }
-                    setClicked(false);
                 }}>{station}</p>
             })}
         </div>

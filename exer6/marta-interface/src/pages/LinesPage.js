@@ -13,7 +13,7 @@ export default function LinesPage() {
   let [data, setData] = useState(null);
   let [data2, setData2] = useState(null);
   let [loading, setLoading] = useState(true);
-  let [oldData1, setOld1] = useState(null), [oldData2, setOld2] = useState(null), [oldData3, setOld3] = useState(null), [oldData4, setOld4] = useState(null);
+  let [givetrain, setGiveTrain] = useState(null);
 
   let [b1, setB1] = useState(false), [b2, setB2] = useState(false), [b3, setB3] = useState(false), [b4, setB4] = useState(false);
 
@@ -27,6 +27,10 @@ export default function LinesPage() {
     fetch(URLarrival + currColor)
     .then(response => response.json())
     .then(data => setData(data));
+
+    fetch(URLarrival + currColor)
+    .then(response => response.json())
+    .then(data => setGiveTrain(data));
     
     fetch(URLstation + currColor)
     .then(response => response.json())
@@ -34,6 +38,34 @@ export default function LinesPage() {
 
     setLoading(false);
   },[currColor])
+
+  useEffect(() => {
+    setGiveTrain(data?.filter((currTrain) => {
+        let temp1=false, temp2=false, temp3=false, temp4=false;
+        if (currTrain.WAITING_TIME === 'Arriving') {
+            temp1 = true;
+        } else {
+            temp2 = true;
+        }
+        if (currTrain.currColor === 'GOLD' || currTrain.currColor === 'RED') {
+            if (currTrain.DIRECTION === 'N') {
+                temp3 = true;
+            } else {
+                temp4 = true;
+            }
+        } else {
+            if (currTrain.DIRECTION === 'E') {
+                temp3 = true;
+            } else {
+                temp4 = true;
+            }
+        }
+
+        if (b1 && !temp1 || b2 && !temp2 || b3 && !temp3 || b4 && !temp4) return false;
+
+        return true;
+    }));
+  }, [b1, b2, b3, b4])
 
   return (
     <div>
@@ -58,66 +90,22 @@ export default function LinesPage() {
                     <button className="button" style={{
                         backgroundColor: b1 ? '#e0c6f5' : '#f9faf2'
                     }} onClick={() => {
-                        if (!b1) {
-                            setOld1(data);
-                            setData(data?.filter((currTrain) => {
-                                return currTrain.WAITING_TIME === "Arriving";
-                            }));
-                            setB1(true);
-                        } else {
-                            setData(oldData1);
-                            setB1(false);
-                        }
+                        setB1(!b1);
                     }}>Arriving</button>
                     <button className="button" style={{
                         backgroundColor: b2 ? '#e0c6f5' : '#f9faf2'
                     }} onClick={() => {
-                        if (!b2) {
-                            setOld2(data);
-                            setData(data?.filter((currTrain) => {
-                                return currTrain.WAITING_TIME !== "Arriving";
-                            }));
-                            setB2(true);
-                        } else {
-                            setData(oldData2);
-                            setB2(false);
-                        }
+                        setB2(!b2);
                     }}>Scheduled</button>
                     <button className="button" style={{
                         backgroundColor: b3 ? '#e0c6f5' : '#f9faf2'
                     }} onClick={() => {
-                        if (!b3) {
-                            setOld3(data);
-                            setData(data?.filter((currTrain) => {
-                                if (currColor === 'GOLD' || currColor === 'RED') {
-                                    return currTrain.DIRECTION === "N";
-                                } else {
-                                    return currTrain.DIRECTION === 'E';
-                                }
-                            }));
-                            setB3(true);
-                        } else {
-                            setData(oldData3);
-                            setB3(false);
-                        }
+                        setB3(!b3);
                     }}>{dir1}</button>
                     <button className="button" style={{
                         backgroundColor: b4 ? '#e0c6f5' : '#f9faf2'
                     }} onClick={() => {
-                        if (!b4) {
-                            setOld4(data);
-                            setData(data?.filter((currTrain) => {
-                                if (currColor === 'GOLD' || currColor === 'RED') {
-                                    return currTrain.DIRECTION === "S";
-                                } else {
-                                    return currTrain.DIRECTION === 'W';
-                                }
-                            }));
-                            setB4(true);
-                        } else {
-                            setData(oldData4);
-                            setB4(false);
-                        }
+                        setB4(!b4);
                     }}>{dir2}</button>
                 </div>
             </div>
@@ -130,7 +118,7 @@ export default function LinesPage() {
                 loading ? 
                 <div className="loading">LOADING</div>
                 : <div className="trainlist">
-                    <TrainList color={currColor} data={data} />
+                    <TrainList color={currColor} data={givetrain} />
                 </div>
             }
         </div>
