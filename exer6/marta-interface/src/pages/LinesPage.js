@@ -3,7 +3,7 @@ import stationData from '../server/stationData';
 import trainData from '../server/trainData';
 import TrainList from './TrainList';
 import NavBar from '../components/NavBar';
-import './LinesPage.css'
+import './LinesPage.css';
 import {useState, useEffect} from 'react';
 
 export default function LinesPage() {
@@ -112,7 +112,7 @@ export default function LinesPage() {
         </div>
         <div className="flex">
             <div className="navbar">
-                <NavBar color={currColor} data={data2} />
+                <NavBar stations={data2} data={data} setData={setData}/>
             </div>
             {
                 loading ? 

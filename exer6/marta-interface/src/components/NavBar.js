@@ -1,21 +1,27 @@
-import './NavBar.css'
+import './NavBar.css';
 import {useState} from 'react';
 
 export default function NavBar(props) {
-    const { color } = props;
+    const { stations } = props;
     const { data } = props;
-    let [clicked, setClicked] = useState(false);
+    const [filter, setFilter] = useState("");
 
     return (
         <div className="bar">
-            {data?.map((station) => {
+            <p className="all" onClick={() => {
+
+            }}>ALL STATIONS</p>
+            {stations?.map((station) => {
                 return <p className='station' style={{
-                    fontWeight: clicked ? '500' : '400'
+                    fontWeight: filter.includes(station) ? '700' : '400'
                 }} onClick={() => {
-                    if (clicked) {
-                        setClicked(false);
+                    if (filter.includes(station)) {
+                        setFilter(filter.replace(station, ""));
+                        
+                        console.log('unclicked');
                     } else {
-                        setClicked(true);
+                        setFilter(filter + " " + station);
+                        console.log('clicked');
                     }
                 }}>{station}</p>
             })}

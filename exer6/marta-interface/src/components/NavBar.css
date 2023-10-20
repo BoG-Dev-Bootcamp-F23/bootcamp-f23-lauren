@@ -10,6 +10,14 @@
     margin-top: 11vh;
 }
 
+.all {
+    font-family: 'DM Sans', sans-serif;
+    margin-bottom: 10px;
+}
+.all:hover {
+    cursor: pointer;
+}
+
 .station {
     font-family: 'DM Sans', sans-serif;
     margin-bottom: 10px;
