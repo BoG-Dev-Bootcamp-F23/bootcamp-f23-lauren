@@ -1,6 +1,4 @@
 // get static data
-import stationData from '../server/stationData';
-import trainData from '../server/trainData';
 import TrainList from './TrainList';
 import NavBar from '../components/NavBar';
 import './LinesPage.css';
@@ -61,7 +59,7 @@ export default function LinesPage() {
             }
         }
 
-        if (b1 && !temp1 || b2 && !temp2 || b3 && !temp3 || b4 && !temp4) return false;
+        if ((b1 && !temp1) || (b2 && !temp2) || (b3 && !temp3) || (b4 && !temp4)) return false;
 
         return true;
     }));
@@ -85,6 +83,7 @@ export default function LinesPage() {
                     setCurrColor('GREEN');
                 }}></button>
             </div>
+
             <div className="buttonsouter">
                 <div className="buttons">
                     <button className="button" style={{
@@ -110,9 +109,10 @@ export default function LinesPage() {
                 </div>
             </div>
         </div>
+
         <div className="flex">
             <div className="navbar">
-                <NavBar stations={data2} data={data} setData={setData}/>
+                <NavBar stations={data2} data={data} givetrain={givetrain} setData={setData} setGiveTrain={setGiveTrain}/>
             </div>
             {
                 loading ? 
