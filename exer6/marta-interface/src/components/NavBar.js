@@ -4,18 +4,7 @@ import {useState, useEffect} from 'react';
 export default function NavBar(props) {
     const { stations } = props;
     const { data } = props;
-    const { givetrain } = props;
-    const [filter, setFilter] = useState("");
-
-    useEffect(() => {
-        props.setGiveTrain(data?.filter((train) => {
-            if (filter.length === 0) {
-                return true;
-            } else {
-                return filter.toUpperCase().includes(train.HEAD_SIGN);
-            }
-        }));
-    }, [filter]);
+    const { filter } = props;
 
     return (
         <div className="bar">
@@ -23,7 +12,7 @@ export default function NavBar(props) {
                 fontWeight: filter.length===0 ? '700' : '400'
             }} onClick={() => {
                 if (filter.length !== 0) {
-                    setFilter("");
+                    props.setFilter("");
                 } 
             }}>ALL STATIONS</p>
             {stations?.map((station) => {
@@ -31,9 +20,9 @@ export default function NavBar(props) {
                     fontWeight: filter.includes(station) ? '700' : '400'
                 }} onClick={() => {
                     if (filter.includes(station)) {
-                        setFilter(filter.replace(station, ""));
+                        props.setFilter(filter.replace(station, ""));
                     } else {
-                        setFilter(filter + station);
+                        props.setFilter(filter + station);
                     }
                 }}>{station}</p>
             })}

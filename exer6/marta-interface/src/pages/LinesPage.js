@@ -10,8 +10,8 @@ export default function LinesPage() {
   let URLstation = 'http://13.59.196.129:3001/stations/';
   let [data, setData] = useState(null);
   let [data2, setData2] = useState(null);
-  let [loading, setLoading] = useState(true);
   let [givetrain, setGiveTrain] = useState(null);
+  const [filter, setFilter] = useState("");
 
   let [b1, setB1] = useState(false), [b2, setB2] = useState(false), [b3, setB3] = useState(false), [b4, setB4] = useState(false);
 
@@ -33,13 +33,12 @@ export default function LinesPage() {
     fetch(URLstation + currColor)
     .then(response => response.json())
     .then(data2 => setData2(data2));
-
-    setLoading(false);
   },[currColor])
 
   useEffect(() => {
-    setGiveTrain(givetrain?.filter((currTrain) => {
-        let temp1=false, temp2=false, temp3=false, temp4=false;
+    setGiveTrain(data?.filter((currTrain) => {
+        if (filter.length === 0 || filter.toUpperCase().includes(currTrain.HEAD_SIGN)) {
+            let temp1=false, temp2=false, temp3=false, temp4=false;
         if (currTrain.WAITING_TIME === 'Arriving') {
             temp1 = true;
         } else {
@@ -60,10 +59,13 @@ export default function LinesPage() {
         }
 
         if ((b1 && !temp1) || (b2 && !temp2) || (b3 && !temp3) || (b4 && !temp4)) return false;
+        else return true;
+        }
 
-        return true;
+        return false;
     }));
-  }, [b1, b2, b3, b4])
+
+  }, [b1, b2, b3, b4, filter])
 
   return (
     <div>
@@ -112,12 +114,11 @@ export default function LinesPage() {
 
         <div className="flex">
             <div className="navbar">
-                <NavBar stations={data2} data={data} givetrain={givetrain} setData={setData} setGiveTrain={setGiveTrain}/>
+                <NavBar stations={data2} data={data} filter={filter} setData={setData} setGiveTrain={setGiveTrain} setFilter={setFilter}/>
             </div>
             {
-                loading ? 
-                <div className="loading">LOADING</div>
-                : <div className="trainlist">
+                empty ? console.log('empty') : 
+                <div className="trainlist">
                     <TrainList color={currColor} data={givetrain} />
                 </div>
             }
