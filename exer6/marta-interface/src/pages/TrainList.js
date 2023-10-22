@@ -4,6 +4,13 @@ import './TrainList.css'
 export default function TrainList(props) {
     const { color } = props;
     const { data } = props;
+    const { loading } = props;
+
+    if (loading) {
+        return (
+            <div className="loading">Loading...</div>
+        )
+    }
 
     const displayedTrains = data?.filter((currTrain) => {
         return currTrain.LINE === color;
@@ -11,8 +18,8 @@ export default function TrainList(props) {
 
     if (displayedTrains?.length === 0) {
         return (
-            <div className="empty">No trains match your search.</div>
-        );
+            <div>No trains match your search.</div>
+        )
     }
 
     return (

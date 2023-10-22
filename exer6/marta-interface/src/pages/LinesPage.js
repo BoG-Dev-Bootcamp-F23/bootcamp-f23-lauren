@@ -11,6 +11,7 @@ export default function LinesPage() {
   let [data, setData] = useState(null);
   let [data2, setData2] = useState(null);
   let [givetrain, setGiveTrain] = useState(null);
+  const [loading, setLoading] = useState(true);
   const [filter, setFilter] = useState("");
 
   let [b1, setB1] = useState(false), [b2, setB2] = useState(false), [b3, setB3] = useState(false), [b4, setB4] = useState(false);
@@ -22,17 +23,20 @@ export default function LinesPage() {
   }
 
   useEffect(() => {
+    setLoading(true);
+
     fetch(URLarrival + currColor)
     .then(response => response.json())
     .then(data => setData(data));
 
     fetch(URLarrival + currColor)
     .then(response => response.json())
-    .then(data => setGiveTrain(data));
+    .then(data => {setGiveTrain(data); setLoading(false);});
     
     fetch(URLstation + currColor)
     .then(response => response.json())
     .then(data2 => setData2(data2));
+
   },[currColor])
 
   useEffect(() => {
@@ -64,7 +68,6 @@ export default function LinesPage() {
 
         return false;
     }));
-
   }, [b1, b2, b3, b4, filter])
 
   return (
@@ -117,7 +120,7 @@ export default function LinesPage() {
                 <NavBar stations={data2} data={data} filter={filter} setData={setData} setGiveTrain={setGiveTrain} setFilter={setFilter}/>
             </div>
             <div className="trainlist">
-                <TrainList color={currColor} data={givetrain} />
+                <TrainList color={currColor} data={givetrain} loading={loading}/>
             </div>
         </div>
     </div>
