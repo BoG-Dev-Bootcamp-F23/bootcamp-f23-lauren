@@ -116,12 +116,9 @@ export default function LinesPage() {
             <div className="navbar">
                 <NavBar stations={data2} data={data} filter={filter} setData={setData} setGiveTrain={setGiveTrain} setFilter={setFilter}/>
             </div>
-            {
-                empty ? console.log('empty') : 
-                <div className="trainlist">
-                    <TrainList color={currColor} data={givetrain} />
-                </div>
-            }
+            <div className="trainlist">
+                <TrainList color={currColor} data={givetrain} />
+            </div>
         </div>
     </div>
   );

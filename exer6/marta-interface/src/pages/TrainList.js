@@ -9,6 +9,12 @@ export default function TrainList(props) {
         return currTrain.LINE === color;
     });
 
+    if (displayedTrains?.length === 0) {
+        return (
+            <div className="empty">No trains match your search.</div>
+        );
+    }
+
     return (
         <div>
             <div className="list">
