@@ -36,6 +36,7 @@ export default function LinesPage() {
     fetch(URLstation + currColor)
     .then(response => response.json())
     .then(data2 => setData2(data2));
+    console.log(data);
 
   },[currColor])
 
