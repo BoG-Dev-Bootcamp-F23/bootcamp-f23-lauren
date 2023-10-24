@@ -1,0 +1,42 @@
+.about-marta {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 50px;
+    margin-bottom: 0px;
+}
+
+.mini {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 32px;
+    margin-bottom: 5px;
+}
+
+.par {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 18px;
+}
+
+.flex-about {
+    display: flex;
+    flex-direction: row;
+    padding: 5vh 12vw;
+    justify-content: space-around;
+    padding-bottom: 15vh;
+}
+
+.left-about {
+    display: flex;
+    flex-direction: column;
+    width: 44vw;
+}
+
+.right-about {
+    display: flex;
+    flex-direction: column;
+    width: 24vw;
+    padding-top: 62px;
+    justify-content: center;
+}
+
+.picture {
+    padding-bottom: 22px;
+}

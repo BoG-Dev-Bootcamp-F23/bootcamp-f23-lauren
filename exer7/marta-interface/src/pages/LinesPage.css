@@ -1,0 +1,101 @@
+.top {
+    position: fixed;
+    background-color: #f9faf2;
+    width: 100vw;
+    padding-bottom: 22px;
+}
+
+.title {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 900;
+    font-size: 50px;
+    margin-top: 26px;
+    margin-bottom: 0px;
+    text-align: center;
+}
+
+.flex {
+    display: flex;
+    flex-direction: row;
+}
+
+.buttonsColors {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    height: 11px;
+    margin-bottom: 10px;
+}
+
+.buttonsouter {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.buttons {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 50vw;
+}
+
+.button {
+    background-color: #f9faf2;
+    border: 0.95px solid black;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 200;
+    font-size: 20px;
+    border-radius: 30px;
+    padding: 8px 26px;
+}
+.button:hover {
+    background-color: #e0c6f5;
+    cursor: pointer;
+}
+
+.trainlist {
+    margin-left: 27vw;
+    margin-top: 26vh;
+}
+
+.gold {
+    background-color: #f0ce46;
+    border: 0px;
+    width: 40px;
+}
+.gold:hover {
+    background-color: #f2dc85;
+    cursor: pointer;
+}
+
+.red {
+    background-color: #eb3f59;
+    border: 0px;
+    width: 40px;
+}
+.red:hover {
+    background-color: #f07a8c;
+    cursor: pointer;
+}
+
+.blue {
+    background-color: #569bf5;
+    border: 0px;
+    width: 40px;
+}
+.blue:hover {
+    background-color: #85b2ed;
+    cursor: pointer;
+}
+
+.green {
+    background-color: #38d14d;
+    border: 0px;
+    width: 40px;
+}
+.green:hover {
+    background-color: #8de399;
+    cursor: pointer;
+}

@@ -1,0 +1,57 @@
+.marta {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 50px;
+    margin: 0px;
+}
+
+.top-bar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: end;
+    margin-top: 26px;
+    padding-left: 50%;
+    padding-right: 45px;
+}
+
+.bottom-home {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.schedules {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    margin-top: 20vh;
+    margin-right: 42px;
+}
+
+.view {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 64px;
+    margin: 0px;
+    margin-bottom: 15px;
+}
+
+.line-element {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 22px;
+    margin-bottom: 5px;
+    border-bottom: 1px solid #a8b0bd;
+    width: 100%;
+}
+.line-element:hover {
+    cursor: pointer;
+}
+
+.map {
+    height: 70vh;
+    margin-left: 42px;
+    margin-top: 25px;
+}
+
+.about:hover {
+    cursor: pointer;
+}
