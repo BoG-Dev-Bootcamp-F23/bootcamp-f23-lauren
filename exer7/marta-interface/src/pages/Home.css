@@ -2,16 +2,15 @@
     font-family: 'DM Sans', sans-serif;
     font-size: 50px;
     margin: 0px;
+    padding-left: 28px;
 }
 
 .top-bar {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: center;
     align-items: end;
     margin-top: 26px;
-    padding-left: 50%;
-    padding-right: 45px;
 }
 
 .bottom-home {
@@ -52,6 +51,12 @@
     margin-top: 25px;
 }
 
+.about {
+    width: 18px;
+    height: 18px;
+    padding-left: 10px;
+    padding-bottom: 12px;
+}
 .about:hover {
     cursor: pointer;
 }

@@ -1,6 +1,6 @@
 import './Home.css';
 import map from './images/marta-map.jpg';
-import {useState} from 'react';
+import about from './images/about.png';
 import { useNavigate } from 'react-router-dom';
 
 export default function Home(props) {
@@ -10,9 +10,9 @@ export default function Home(props) {
         <div>
             <div className="top-bar">
                 <h1 className="marta">MARTA</h1>
-                <p className="about" onClick={() => {
+                <img className="about" src={about} onClick={() => {
                     navigate('/about');
-                }}>About MARTA</p>
+                }}></img>
             </div>
             <div className="bottom-home">
                 <div className="schedules">

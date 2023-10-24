@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import './App.css';
 import Home from './pages/Home';
 import About from './pages/About';
@@ -13,9 +12,9 @@ function App() {
     <div>
       <BrowserRouter>
         <Routes>
-          <Route index element={<Home />} setCurrColor={setCurrColor}/>
+          <Route index element={<Home setCurrColor={setCurrColor} />} />
           <Route path='about' element={<About />} />
-          <Route path='schedules' element={<LinesPage currColor={currColor}/>} />
+          <Route path='schedules' element={<LinesPage currColor={currColor} setCurrColor={setCurrColor}/>} />
         </Routes>
       </BrowserRouter>
       <footer>Made by Lauren Ji, 2023</footer>

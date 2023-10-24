@@ -1,12 +1,14 @@
 // get static data
 import TrainList from './TrainList';
 import NavBar from '../components/NavBar';
+import backhome from './images/home.png';
 import './LinesPage.css';
 import {useState, useEffect} from 'react';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 export default function LinesPage(props) {
-  const [currColor, setCurrColor] = useState(props);
+  const navigate = useNavigate();
+  const { currColor } = props;
   let URLarrival = 'http://13.59.196.129:3001/arrivals/';
   let URLstation = 'http://13.59.196.129:3001/stations/';
   let [data, setData] = useState(null);
@@ -74,19 +76,26 @@ export default function LinesPage(props) {
   return (
     <div>
         <div className="top">
-            <h1 className="title">{currColor}</h1>
+            <div className="titlehome">
+                <h1 className="title">{currColor}</h1>
+                <div className="homeside">
+                    <img className="backhome2" src={backhome} onClick={() => {
+                        navigate("/");
+                    }}></img>
+                </div>
+            </div>
             <div className="buttonsColors">
                 <button className="gold" onClick={() => {
-                    setCurrColor('GOLD');
+                    props.setCurrColor('GOLD');
                 }}></button>
                 <button className="red" onClick={() => {
-                    setCurrColor('RED');
+                    props.setCurrColor('RED');
                 }}></button>
                 <button className="blue" onClick={() => {
-                    setCurrColor('BLUE');
+                    props.setCurrColor('BLUE');
                 }}></button>
                 <button className="green" onClick={() => {
-                    setCurrColor('GREEN');
+                    props.setCurrColor('GREEN');
                 }}></button>
             </div>
 

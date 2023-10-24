@@ -1,14 +1,22 @@
 import marta1 from './images/marta1.jpg';
 import marta2 from './images/marta2.jpg';
 import marta3 from './images/marta3.jpg';
+import home from './images/home.png';
 import './About.css';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 export default function About() {
+    const navigate = useNavigate();
+
     return (
         <div className="flex-about">
             <div className="left-about">
-                <h1 className="about-marta">About MARTA</h1>
+                <div className="chunk">
+                    <h1 className="about-marta">About MARTA</h1>
+                    <img className="backhome" src={home} onClick={() => {
+                        navigate('/');
+                    }}></img>
+                </div>
 
                 <h2 className="mini">Our History</h2>
                 <div className="par">

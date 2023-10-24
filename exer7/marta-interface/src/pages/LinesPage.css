@@ -99,3 +99,21 @@
     background-color: #8de399;
     cursor: pointer;
 }
+
+.titlehome {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: end;
+    padding-left: 25px;
+}
+
+.backhome2 {
+    width: 15px;
+    height: 15px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+}
+.backhome2:hover {
+    cursor: pointer;
+}
