@@ -10,25 +10,35 @@ export default async function handler(req, res) {
             const chainURL = speciesData.evolution_chain.url;
             const chainResponse = await fetch(chainURL);
             const chainData = await chainResponse.json();
-            let chain = chainData.chain;
+            const queue = [chainData.chain];
+            let next = [];
+            let found = false;
 
-            while(true) {
-                if (chain.species.name === name) {
-                    if (chain.evolves_to.length !== 0) {
-                        res.status(200).json({ next_evolution: chain.evolves_to[0].species.name });
+            while(queue.length !== 0) {
+                const currChain = queue.shift();
+
+                if (currChain.species.name === name) {
+                    found = true;
+                    if (currChain.evolves_to.length !== 0) {
+                        next = currChain.evolves_to.map((curr) => {
+                            return curr.species.name;
+                        });
+                        res.status(200).json({ next_evolution: next });
                         break;
                     } else {
-                        res.status(200).json({ next_evolution: chain.species.name });
+                        next.push(currChain.species.name);
+                        res.status(200).json({ next_evolution: next });
                         break;
                     }
-                } else {
-                    if (chain.evolves_to.length !== 0) {
-                        chain = chain.evolves_to[0];
-                    } else {
-                        res.status(400).json({ error: 'invalid pokemon'});
-                        break;
+                } else if (currChain.evolves_to.length !== 0) {
+                    for (let i = 0; i < currChain.evolves_to.length; i++) {
+                        queue.push(currChain.evolves_to[i]);
                     }
                 }
+            }
+
+            if (!found) {
+                res.status(400).json({ error: "invalid pokemon!" });
             }
 
         } catch(e) {
