@@ -23,11 +23,9 @@ export default async function handler(req, res) {
                         next = currChain.evolves_to.map((curr) => {
                             return curr.species.name;
                         });
-                        res.status(200).json({ next_evolution: next });
                         break;
                     } else {
                         next.push(currChain.species.name);
-                        res.status(200).json({ next_evolution: next });
                         break;
                     }
                 } else if (currChain.evolves_to.length !== 0) {
@@ -39,6 +37,8 @@ export default async function handler(req, res) {
 
             if (!found) {
                 res.status(400).json({ error: "invalid pokemon!" });
+            } else {
+                res.status(200).json({ next_evolution: next });
             }
 
         } catch(e) {
