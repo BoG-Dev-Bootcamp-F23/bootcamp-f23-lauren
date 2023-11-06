@@ -3,10 +3,8 @@ import Ticket from '../models/Ticket.js'
 
 export default async function updateTicketByUser(data) {
     try {
-        await connectDB();
-        const { ticketID, userID } = data;
-        await Ticket.findByIdAndUpdate(ticketID, { userId: userID })
+        await Ticket.findByIdAndUpdate(data.ticketID, { 'userID': data.userID })
     } catch (e) {
-        console.log(e);
+        console.log(e)
     }
 }

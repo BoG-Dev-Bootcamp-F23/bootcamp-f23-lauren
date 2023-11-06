@@ -1,5 +1,5 @@
 import connectDB from '../index.js'
-import Ticket from '../models/User.js'
+import Ticket from '../models/Ticket.js'
 
 export default async function createTicket(data) {
     try {
