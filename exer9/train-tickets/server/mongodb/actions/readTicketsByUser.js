@@ -5,7 +5,7 @@ export default async function readTicketsByUser(data) {
     try {
         await connectDB()
         const { id } = data
-        return await Ticket.find({_id: id })
+        return await Ticket.find({ "userID": id })
     } catch (e) {
         console.log(e)
     }
