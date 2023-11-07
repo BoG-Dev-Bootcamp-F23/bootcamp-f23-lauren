@@ -1,4 +1,5 @@
 import connectDB from '../index.js'
+import User from '../models/User.js'
 import Ticket from '../models/Ticket.js'
 
 export default async function updateTicketByUser(data) {
