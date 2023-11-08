@@ -8,6 +8,5 @@ export default async function createTicket(data) {
         await newTicket.save()
     } catch (e) {
         console.log(e)
-        throw new Error('messed up')
     }
 }
